@@ -15,6 +15,12 @@
       "options": {
         "parser": "astro"
       }
+    },
+    {
+      "files": ["*.yml", "*.yaml"],
+      "options": {
+        "parser": "yaml"
+      }
     }
   ]
 }
