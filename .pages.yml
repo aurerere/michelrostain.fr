@@ -48,6 +48,9 @@ content:
           - name: isbn
             label: ISBN
             type: string
+          - name: link
+            label: "Lien vers la référence chez l'éditeur"
+            type: string
           - name: notes
             label: Notes
             type: rich-text
