@@ -52,17 +52,9 @@ content:
             label: Notes
             type: rich-text
       - name: novels
-        label: Romans
+        label: Introduction aux romans
         type: file
         path: src/content/pages/novels.md
-        fields:
-          - name: body
-            label: Contenu
-            type: rich-text
-      - name: essays
-        label: Essais
-        type: file
-        path: src/content/pages/essays.md
         fields:
           - name: body
             label: Contenu
