@@ -3,6 +3,14 @@ media:
   output: /media
 
 content:
+  - name: home
+    label: Accueil
+    type: file
+    path: src/content/pages/home.md
+    items:
+      - name: body
+        label: Contenu
+        type: rich-text
   - name: books
     label: Livres
     type: group
@@ -62,3 +70,36 @@ content:
           - name: body
             label: Contenu
             type: rich-text
+  - name: articles
+    label: Textes
+    type: collection
+    path: src/content/articles
+    fields:
+      - name: kind
+        label: Type
+        type: select
+        options:
+          values:
+            - name: lyrical_and_musical_theater
+              label: Théatre lyrique & musical
+            - name: misc
+              label: Divers
+            - name: title
+              label: Titre
+              type: string
+            - name: authors
+              label: Auteur(s)
+              list: true
+              type: string
+            - name: publish_at
+              label: Date de publication
+              type: date
+              options:
+                time: false
+            - name: body
+              label: Contenu
+              type: rich-text
+            - name: tags
+              label: Tags
+              list: true
+              type: string
