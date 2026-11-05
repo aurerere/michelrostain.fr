@@ -1,23 +1,76 @@
 ---
 ---
 
-<script></script>
-
 <header>
   <div class="container">
-    <h1>Michel Rostain</h1>
+    <div class="right">
+      <a class="no-decoration" href="/">
+        <h1>Michel Rostain</h1>
+      </a>
+    </div>
+    <div class="left">Yes</div>
   </div>
 </header>
+
+<script>
+  const header = document.querySelector("header");
+
+  const HEADER_HEIGHT = 136; // 24px padding × 2 + 88px content
+
+  let prevScrollY = window.scrollY;
+  let visible = false;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!header) return;
+
+      const scrollY = Math.max(0, window.scrollY);
+      const delta = scrollY - prevScrollY;
+
+      prevScrollY = scrollY;
+
+      if (scrollY <= HEADER_HEIGHT && delta >= 0) {
+        visible = false;
+      } else if (delta < 0) {
+        visible = true;
+      } else if (delta > 0) {
+        visible = false;
+      }
+
+      header.classList.toggle("visible", visible);
+    },
+    { passive: true },
+  );
+</script>
 
 <style>
   header {
     box-sizing: border-box;
     width: 100%;
+    height: var(--contained-header-height);
     padding: var(--s24);
+
+    position: sticky;
+    top: calc(var(--contained-header-height) * -1);
+
+    z-index: 10;
+    transition: top 250ms ease-in-out;
   }
+
+  header.visible {
+    top: 0;
+  }
+
   .container {
     padding: var(--s24);
     border-radius: var(--r16);
     border: 1px solid var(--text-color);
+    height: 88px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-elevation-1);
   }
 </style>
