@@ -1,25 +1,17 @@
 {
-  "arrowParens": "avoid",
-  "semi": true,
-  "tabWidth": 2,
-  "printWidth": 80,
+  "useTabs": false,
   "singleQuote": false,
-  "jsxSingleQuote": false,
-  "trailingComma": "es5",
-  "bracketSpacing": true,
+  "semi": true,
+  "trailingComma": "all",
+  "plugins": [
+    "prettier-plugin-astro"
+  ],
   "endOfLine": "lf",
-  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "overrides": [
     {
       "files": "*.astro",
       "options": {
         "parser": "astro"
-      }
-    },
-    {
-      "files": ["*.yml", "*.yaml"],
-      "options": {
-        "parser": "yaml"
       }
     }
   ]
