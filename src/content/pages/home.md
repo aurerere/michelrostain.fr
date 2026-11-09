@@ -5,8 +5,6 @@ title: Biographie
 
 ---
 
-# Biographie
-
 Michel Rostain a étudié la musique en autodidacte à l’âge de 7 ans. Il a poursuivi cela intensément pendant toute sa scolarité primaire et secondaire à Nîmes. Il a plus tard et plus assidument repris des études musicales (années 1970–1980).
 
 En 1961, il a reçu le Premier Prix de Philosophie au Concours Général.
