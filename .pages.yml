@@ -23,8 +23,7 @@ content:
         type: collection
         path: src/content/books
         filename:
-          template: "{title}.md"
-          field: create
+          template: "{fields.<title>}.md"
         fields:
           - name: kind
             label: Type
