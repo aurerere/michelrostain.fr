@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import MenuLink from "../components/MenuLink.astro";
 ---
 
 <header>
@@ -9,64 +10,67 @@ import { Icon } from "astro-icon/components";
     </a>
   </div>
   <div class="left">
-    <menu>
+    <menu class="desktop">
       <li>
-        <a href="/livres">Livres</a>
+        <MenuLink label="Romans" to="/romans" />
       </li>
       <li>
-        <div class="category" role="button" tabindex="0">
-          <div class="category-summary">
-            Textes <Icon name="chevron-down" />
-          </div>
-          <div class="category-content">
-            <a href="/textes/divers" aria-current="page">
-              Divers
-            </a>
-            <a href="/textes/theatre">Le théatre lyrique et musical</a>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a href="/compositeurs">Mises en scène</a>
+        <MenuLink label="Essais" to="/essais" />
       </li>
       <li>
-        <a href="/compositeurs">Biographies</a>
+        <MenuLink label="Le théatre lyric et musical" to="/theatre" />
+      </li>
+      <li>
+        <MenuLink label="Articles divers" to="/articles" />
+      </li>
+      <li>
+        <MenuLink label="Compositeurs" to="/compositeurs" />
+      </li>
+      <li>
+        <MenuLink label="Biographies" to="/biographies" />
       </li>
     </menu>
   </div>
 </header>
 
 <script>
-  const header = document.querySelector("header");
+  const HEADER_HEIGHT = 136;
+  let controller: AbortController | undefined;
 
-  const HEADER_HEIGHT = 136; // 24px padding × 2 + 88px content
+  document.addEventListener("astro:page-load", () => {
+    controller?.abort();
+    controller = new AbortController();
 
-  let prevScrollY = window.scrollY;
-  let visible = false;
+    const header = document.querySelector("header");
+    if (!header) return;
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!header) return;
+    let prevScrollY = window.scrollY;
+    let visible = false;
 
-      const scrollY = Math.max(0, window.scrollY);
-      const delta = scrollY - prevScrollY;
+    window.addEventListener(
+      "scroll",
+      () => {
+        const scrollY = Math.max(0, window.scrollY);
+        const delta = scrollY - prevScrollY;
 
-      prevScrollY = scrollY;
+        prevScrollY = scrollY;
 
-      if (scrollY <= HEADER_HEIGHT && delta >= 0) {
-        visible = false;
-      } else if (delta < 0) {
-        visible = true;
-      } else if (delta > 0) {
-        visible = false;
-      }
+        if (scrollY <= HEADER_HEIGHT && delta >= 0) {
+          visible = false;
+        } else if (delta < 0) {
+          visible = true;
+        } else if (delta > 0) {
+          visible = false;
+        }
 
-      header.classList.toggle("visible", visible);
-    },
-    { passive: true },
-  );
+        header.classList.toggle("visible", visible);
+      },
+      {
+        passive: true,
+        signal: controller?.signal,
+      },
+    );
+  });
 </script>
 
 <style>
@@ -109,18 +113,6 @@ import { Icon } from "astro-icon/components";
     text-wrap: nowrap;
   }
 
-  a {
-    font-weight: 600;
-    color: var(--text-color);
-    text-decoration: none;
-  }
-
-  [aria-current="page"] {
-    text-decoration-color: var(--accent-color) !important;
-    text-decoration: underline;
-    text-decoration-style: wavy;
-  }
-
   .category-summary {
     display: flex;
     align-items: center;
@@ -157,6 +149,12 @@ import { Icon } from "astro-icon/components";
       text-decoration: underline;
       text-decoration-style: wavy;
       text-underline-position: under;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .desktop {
+      display: none;
     }
   }
 </style>

@@ -1,2 +1,52 @@
 ---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import BookListItem from "../../components/BookListItem.astro";
+import ContentWrapper from "../../components/ContentWrapper.astro";
+import Layout from "../../layouts/Layout.astro";
+import BreadCrumb from "../../components/BreadCrumb.astro";
+const books = await getCollection("books");
+
+const novels = books
+  .filter((book) => book.data.kind === "novel")
+  .sort((a, b) => b.data.publish_at.getTime() - a.data.publish_at.getTime());
 ---
+
+<Layout>
+  <ContentWrapper>
+    <BreadCrumb current="Romans" previous={[]} />
+    <div class="list">
+      {novels.map((entry) => (
+        <BookListItem entry={entry} />
+      ))}
+    </div>
+  </ContentWrapper>
+</Layout>
+
+<style>
+  .list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: var(--s16);
+    margin-bottom: var(--s24);
+  }
+
+  @media (max-width: 810px) {
+    .list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 430px) {
+    .list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

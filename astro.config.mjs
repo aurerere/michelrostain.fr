@@ -6,4 +6,7 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://michelrostain.fr",
   integrations: [icon(), sitemap()],
+  server: {
+    host: true,
+  },
 });

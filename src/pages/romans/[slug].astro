@@ -1,2 +1,119 @@
 ---
+import {
+  type CollectionEntry,
+  getCollection,
+  getEntry,
+  render,
+} from "astro:content";
+import { Icon } from "astro-icon/components";
+import ContentWrapper from "../../components/ContentWrapper.astro";
+import Layout from "../../layouts/Layout.astro";
+import BreadCrumb from "../../components/BreadCrumb.astro";
+
+export async function getStaticPaths() {
+  const books = await getCollection("books");
+
+  return books.map((book) => ({
+    params: { slug: book.id },
+    props: { book },
+  }));
+}
+
+type Props = {
+  book: CollectionEntry<"books">;
+};
+
+const { slug } = Astro.params;
+
+const entry = await getEntry("books", slug)!;
+
+const { Content } = await render(entry);
 ---
+
+<Layout>
+  <ContentWrapper>
+    <BreadCrumb
+      current={entry.data.title}
+      previous={[
+        {
+          url: "/romans",
+          label: "Romans",
+        },
+      ]}
+    />
+    <div class="intro">
+      <div class="cover">
+        <img
+          src={entry.data.covers[0] ?? ""}
+          alt={`Couverture de '${entry.data.title}'`}
+          transition:name={`book-cover-${entry.id}`}
+        />
+      </div>
+
+      <div class="info">
+        <h2 transition:name={`book-title-${slug}`}>{entry.data.title}</h2>
+        <div class="data">
+          <span class="semibold">Auteur(s)</span> :{" "}
+          {entry.data.authors.join(", ")}
+        </div>
+        <div class="data">
+          <span class="semibold">Éditeur</span> : {entry.data.publisher}
+        </div>
+        <div class="data">
+          <span class="semibold">Année de publication</span> :{" "}
+          {entry.data.publish_at.getFullYear()}
+        </div>
+        <div class="data">
+          <span class="semibold">ISBN</span> : {entry.data.isbn}
+        </div>
+        <div class="publisher">
+          <a href={entry.data.link} target="_blank" class="publisher-url">
+            Page de l'éditeur <Icon name="external-link" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <Content />
+    </div>
+  </ContentWrapper>
+</Layout>
+
+<style>
+  .cover {
+    width: 30%;
+    max-width: 250px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .intro {
+    display: flex;
+    gap: var(--s16);
+  }
+
+  .semibold {
+    font-weight: 600;
+  }
+
+  .data {
+    color: var(--muted-color);
+  }
+
+  .publisher {
+    margin-top: var(--s8);
+  }
+
+  .publisher-url {
+    display: flex;
+    align-items: center;
+    gap: var(--s4);
+  }
+
+  .intro {
+    margin-bottom: var(--s24);
+  }
+</style>

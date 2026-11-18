@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  current: string;
+  previous: Array<{ label: string; url: string }>;
+}
+
+const { previous, current } = Astro.props;
+---
+
+<div>
+  <a href="/">Michel Rostain</a> <span class="slash">/</span>{" "}
+  {previous.map((item) => (
+    <>
+      <a href={item.url}>{item.label}</a> <span class="slash">/</span>
+    </>
+  ))}{" "}
+  <span class="current">{current}</span>
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s8);
+    margin-bottom: var(--s16);
+  }
+
+  .slash {
+    color: var(--muted-color);
+  }
+
+  .current {
+    font-weight: 600;
+  }
+</style>

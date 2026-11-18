@@ -1,0 +1,33 @@
+---
+interface Props {
+  to: string;
+  label: string;
+}
+const { to, label } = Astro.props;
+
+const url = Astro.url.pathname;
+---
+
+<a href={to} aria-current={url.startsWith(to) ? "page" : undefined}>
+  {label}
+</a>
+
+<style>
+  a {
+    font-weight: 600;
+    color: var(--muted-color);
+    text-decoration: none;
+  }
+
+  a:hover:not([aria-current="page"]) {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+  }
+
+  [aria-current="page"] {
+    color: var(--text-color);
+    text-decoration-color: var(--accent-color) !important;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+  }
+</style>

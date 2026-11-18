@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry, ReferenceDataEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"books">;
+}
+
+const { entry } = Astro.props;
+---
+
+<a href={`/romans/${entry.id}`} transition:name={`book-card-${entry.id}`}>
+  <div class="item">
+    <img
+      src={entry.data.covers[0] ?? ""}
+      alt={`Couverture de '${entry.data.title}'`}
+      transition:name={`book-cover-${entry.id}`}
+    />
+    <div class="desc">
+      <h4
+        class="no-margin book-title"
+        transition:name={`book-title-${entry.id}`}
+      >
+        {entry.data.title}
+      </h4>
+      <p class="no-margin muted">
+        {entry.data.publish_at.getFullYear()} • {entry.data.publisher}
+      </p>
+    </div>
+  </div>
+</a>
+
+<style>
+  img {
+    width: 100%;
+    aspect-ratio: 104/165;
+    object-fit: cover;
+  }
+
+  .item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 200ms ease-in-out;
+    cursor: pointer;
+  }
+
+  .book-title {
+    margin-top: var(--s4);
+    margin-bottom: var(--s8);
+  }
+
+  .desc {
+    padding: var(--s8);
+    border-left: 1px solid var(--text-color);
+  }
+</style>
