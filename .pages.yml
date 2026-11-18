@@ -22,7 +22,7 @@ content:
         label: Livres publiés
         type: collection
         path: src/content/books
-        filename: "{fields.<title>}.md"
+        filename: "{title}.md"
         fields:
           - name: kind
             label: Type
