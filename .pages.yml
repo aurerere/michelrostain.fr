@@ -17,14 +17,14 @@ content:
   - name: books
     label: Livres
     type: group
+    filename:
+          template: "{title}.md"
+          field: create
     items:
       - name: published_book
         label: Livres publiés
         type: collection
         path: src/content/books
-        filename:
-          template: "{title}.md"
-          field: create
         fields:
           - name: kind
             label: Type
