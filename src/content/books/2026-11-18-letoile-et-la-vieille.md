@@ -2,7 +2,7 @@
 kind: novel
 title: L'étoile et la vieille
 covers:
-  - /media/71dvwwgdrcluf10001000ql80.jpg
+  - /media/9782366580044-001-X.webp
 authors:
   - Michel Rostain
 publish_at: 2013-11-18
