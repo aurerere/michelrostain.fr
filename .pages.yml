@@ -63,8 +63,8 @@ content:
           - name: link
             label: "Lien vers la référence chez l'éditeur"
             type: string
-          - name: notes
-            label: Notes
+          - name: body
+            label: Contenu
             type: rich-text
       - name: novels
         label: Introduction aux romans
