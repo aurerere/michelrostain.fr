@@ -22,8 +22,7 @@ content:
         label: Livres publiés
         type: collection
         path: src/content/books
-        filename:
-          template: "{fields.<title>}.md"
+        filename: "{fields.<title>}.md"
         fields:
           - name: kind
             label: Type
