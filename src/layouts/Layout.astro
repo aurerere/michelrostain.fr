@@ -3,6 +3,7 @@ import { SITE } from "../config.ts";
 import { ClientRouter } from "astro:transitions";
 import Header from "./Header.astro";
 import "../styles/global.css";
+import Footer from "./Footer.astro";
 
 interface Props {
   title?: string;
@@ -77,10 +78,22 @@ const {
 
     <ClientRouter />
   </head>
-  <body style="min-height: 200vh">
+  <body>
     <Header />
     <main>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+</style>

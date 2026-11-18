@@ -1,14 +1,39 @@
 ---
+import { Icon } from "astro-icon/components";
 ---
 
 <header>
-  <div class="container">
-    <div class="right">
-      <a class="no-decoration" href="/">
-        <h1>Michel Rostain</h1>
-      </a>
-    </div>
-    <div class="left">Yes</div>
+  <div class="right">
+    <a class="no-decoration" href="/">
+      <h1 class="no-margin">Michel Rostain</h1>
+    </a>
+  </div>
+  <div class="left">
+    <menu>
+      <li>
+        <a href="/livres">Livres</a>
+      </li>
+      <li>
+        <div class="category" role="button" tabindex="0">
+          <div class="category-summary">
+            Textes <Icon name="chevron-down" />
+          </div>
+          <div class="category-content">
+            <a href="/textes/divers" aria-current="page">
+              Divers
+            </a>
+            <a href="/textes/theatre">Le théatre lyrique et musical</a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <a href="/compositeurs">Mises en scène</a>
+      </li>
+      <li>
+        <a href="/compositeurs">Biographies</a>
+      </li>
+    </menu>
   </div>
 </header>
 
@@ -48,29 +73,90 @@
   header {
     box-sizing: border-box;
     width: 100%;
-    height: var(--contained-header-height);
-    padding: var(--s24);
 
     position: sticky;
-    top: calc(var(--contained-header-height) * -1);
+    top: calc(var(--header-height) * -1);
 
     z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: var(--header-height);
+    padding: var(--s24);
+
+    background: var(--bg);
+    border-bottom: 1px solid var(--text-color);
+
     transition: top 250ms ease-in-out;
+    gap: var(--s24);
   }
 
   header.visible {
     top: 0;
   }
 
-  .container {
-    padding: var(--s24);
-    border-radius: var(--r16);
-    border: 1px solid var(--text-color);
-    height: 88px;
-    box-sizing: border-box;
+  menu {
+    display: flex;
+    list-style: none;
+    gap: var(--s16);
+    padding: 0;
+    margin: 0;
+  }
+
+  h1 {
+    text-wrap: nowrap;
+  }
+
+  a {
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  [aria-current="page"] {
+    text-decoration-color: var(--accent-color) !important;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+  }
+
+  .category-summary {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: var(--bg-elevation-1);
+    gap: var(--s4);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .category {
+    position: relative;
+  }
+
+  .category-content {
+    position: absolute;
+    padding: var(--s12);
+    background: var(--bg);
+    border: 1px solid var(--text-color);
+    right: 0;
+    top: calc(100% + var(--s8));
+    flex-direction: column;
+    gap: var(--s8);
+    width: fit-content;
+    display: none;
+
+    a {
+      text-wrap: nowrap;
+      text-align: right;
+    }
+  }
+
+  .category:has(a[aria-current="page"]) {
+    .category-summary {
+      text-decoration-color: var(--accent-color) !important;
+      text-decoration: underline;
+      text-decoration-style: wavy;
+      text-underline-position: under;
+    }
   }
 </style>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  withBorder?: boolean;
+}
+
+const { withBorder = false } = Astro.props;
+---
+
+<div class={`container ${withBorder ? "with-border" : ""}`}>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content {
+    max-width: 880px;
+    width: 100%;
+    padding: var(--s24);
+  }
+
+  .with-border {
+    border-left: 1px solid var(--text-color);
+    border-right: 1px solid var(--text-color);
+  }
+</style>

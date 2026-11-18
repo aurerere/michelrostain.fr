@@ -1,2 +1,16 @@
 ---
+import ContentWrapper from "../components/ContentWrapper.astro";
+const now = new Date().getFullYear();
 ---
+
+<div>
+  <ContentWrapper>
+    Copyright © Michel Rostain {now} | Touts droits réservés
+  </ContentWrapper>
+</div>
+
+<style>
+  div {
+    border-top: 1px solid var(--text-color);
+  }
+</style>
