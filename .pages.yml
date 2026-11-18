@@ -18,8 +18,8 @@ content:
     label: Livres
     type: group
     filename:
-          template: "{title}.md"
-          field: create
+      template: "{title}.md"
+      field: create
     items:
       - name: published_book
         label: Livres publiés
