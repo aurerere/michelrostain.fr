@@ -7,6 +7,6 @@ authors:
   - Michel Rostain
   - Marie-Noël Rio
 publish_at: 1980-11-19
-publisher: Édition Recherches
+publisher: Éditions Recherches
 link: http://www.editions-recherches.com/revue_commander.php?id=43
 ---
