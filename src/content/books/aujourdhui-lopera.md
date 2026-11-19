@@ -8,5 +8,5 @@ authors:
   - Marie-Noël Rio
 publish_at: 1980-11-19
 publisher: Éditions Recherches
-link: http://www.editions-recherches.com/revue_commander.php?id=43
+link: http://www.editions-recherches.com/revue_detail.php?id=43
 ---
