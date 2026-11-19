@@ -7,7 +7,7 @@ authors:
   - Michel Rostain
   - Marie-Noël Rio
 publish_at: 1996-11-19
-publisher: Édition Recherches/encres
+publisher: Éditions Recherches/encres
 isbn: "9782862220253"
 link: http://editions-recherches.com/fiche.php?id=170
 ---
