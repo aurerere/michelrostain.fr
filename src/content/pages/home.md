@@ -9,7 +9,7 @@ Je ne crois sincèrement pas avoir rassemblé mes archives pour la postérit
 
 Plût au ciel qu’il y ait dans le fatras des textes ici rassemblés, des bribes, des intuitions, des paragraphes voire même pages entières qui servent à quelques uns et qui soient réemployables.
 
-### Sont donc recensés ici :
+**Sont donc recensés ici :**
 
 - Mes [romans](/romans), tous publiés après que j’aie pris ma retraite
 - La liste des divers [essais](/essais), la plupart sur l’opéra mais au aussi sur la clinique de La Borde.
