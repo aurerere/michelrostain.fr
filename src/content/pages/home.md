@@ -1,6 +1,8 @@
 ---
 title: Avant propos
 ---
+![](/media/1573517.webp)
+
 Un beau jour, ça m’a pris - une fois que j’eus publié « [La joie malgré](/romans/la-joie-malgre) » - je me suis mis à ranger mes archives.
 
 C’était une preuve de plus que l’âge était venu defaire comme tant de monde à cette heure tardive de la vie : mettre en ordre ses papiers, comme on dit.
