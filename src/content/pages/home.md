@@ -1,5 +1,5 @@
 ---
-title: Biographie
+title: Avant propos
 ---
 Un beau jour, ça m’a pris - une fois que j’eus publié « [La joie malgré](/romans/la-joie-malgre) » - je me suis mis à ranger mes archives.
 
