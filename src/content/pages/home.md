@@ -1,13 +1,15 @@
 ---
 title: Avant propos
 ---
-<span class="big">U</span>n beau jour, ça m’a pris - une fois que j’eus publié « [La joie malgré](/romans/la-joie-malgre) » - je me suis mis à ranger mes archives.
+Un beau jour, ça m’a pris - une fois que j’eus publié « [La joie malgré](/romans/la-joie-malgre) » - je me suis mis à ranger mes archives.
 
 C’était une preuve de plus que l’âge était venu defaire comme tant de monde à cette heure tardive de la vie : mettre en ordre ses papiers, comme on dit.
 
 Je ne crois sincèrement pas avoir rassemblé mes archives pour la postérité. Je ne l’ai fait que pour rendre utilisables la masse des outils imaginaires ou réels dont je me suis servi tout au long de ma vie artistique, à partir de la fin des années 1970. Pour la plupart, ce sont des outils que j’ai retaillés à ma convenance une fois qu’on me les eut transmis ou même que je les aie dérobés sans pudeur à quelque maitre profondément admiré ou avidement lu. Ces archives ne sont donc là que pour transmission à qui croira pouvoir s’en servir. 
 
 Plût au ciel qu’il y ait dans le fatras des textes ici rassemblés, des bribes, des intuitions, des paragraphes voire même pages entières qui servent à quelques uns et qui soient réemployables.
+
+---
 
 **Sont donc recensés ici :**
 
