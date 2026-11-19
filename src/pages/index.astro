@@ -22,6 +22,10 @@ const { Content: Bio } = await render(bio);
 
 <Layout>
   <ContentWrapper>
+    <div class="about">
+      <h2>{bio.data.title}</h2>
+      <Bio />
+    </div>
     <div class="novels-header">
       <h2 class="no-margin">Romans</h2>
       <a href="/romans" class="more">
@@ -32,11 +36,6 @@ const { Content: Bio } = await render(bio);
       {novels.map((entry) => (
         <BookListItem entry={entry} />
       ))}
-    </div>
-
-    <div>
-      <h2>A propos</h2>
-      <Bio />
     </div>
   </ContentWrapper>
 </Layout>
@@ -67,6 +66,10 @@ const { Content: Bio } = await render(bio);
     display: flex;
     align-items: center;
     gap: var(--s4);
+  }
+
+  .about {
+    margin-bottom: var(--s48);
   }
 
   @media (max-width: 810px) {

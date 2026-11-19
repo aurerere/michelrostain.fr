@@ -155,3 +155,13 @@ blockquote {
 strong, b {
   font-weight: 600;
 }
+
+li {
+  margin-bottom: var(--s8);
+}
+
+img {
+  width: 100%;
+  margin-bottom: var(--s8);
+  border-radius: var(--r8);
+}

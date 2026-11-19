@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import MenuLink from "../components/MenuLink.astro";
 ---
 
@@ -18,7 +17,7 @@ import MenuLink from "../components/MenuLink.astro";
         <MenuLink label="Essais" to="/essais" />
       </li>
       <li>
-        <MenuLink label="Le théatre lyric et musical" to="/theatre" />
+        <MenuLink label="Théatre musical" to="/theatre-musical" />
       </li>
       <li>
         <MenuLink label="Articles divers" to="/articles" />
@@ -109,6 +108,10 @@ import MenuLink from "../components/MenuLink.astro";
     margin: 0;
   }
 
+  li {
+    margin: 0;
+  }
+
   h1 {
     text-wrap: nowrap;
   }
@@ -152,7 +155,7 @@ import MenuLink from "../components/MenuLink.astro";
     }
   }
 
-  @media (max-width: 680px) {
+  @media (max-width: 1030px) {
     .desktop {
       display: none;
     }
