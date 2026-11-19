@@ -9,7 +9,7 @@ authors:
   - Georges Prély
   - Claudine Dardy
   - Gérard Grass
-publish_at: 2026-11-19
+publish_at: 1976-11-19
 publisher: Édition Recherches
 link: http://www.editions-recherches.com/revue_detail.php?id=21
 ---
