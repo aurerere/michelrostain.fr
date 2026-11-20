@@ -1,2 +1,12 @@
 ---
+import { getCollection } from "astro:content";
+import BooksListPage from "../../layouts/BooksListPage.astro";
+
+const books = await getCollection("books");
+
+const novels = books
+  .filter((book) => book.data.kind === "essay")
+  .sort((a, b) => b.data.publish_at.getTime() - a.data.publish_at.getTime());
 ---
+
+<BooksListPage entries={novels} kind="essay" />

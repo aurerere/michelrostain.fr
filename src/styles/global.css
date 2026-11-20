@@ -156,12 +156,29 @@ strong, b {
   font-weight: 600;
 }
 
+ul {
+  margin-top: calc(-1 * var(--s8));
+}
+
+span.big {
+  font-family: Gloock, serif;
+  float: left;
+  font-size: 8rem;
+  line-height: 0.9;
+  margin-right: .2rem;
+}
+
 li {
   margin-bottom: var(--s8);
 }
 
 img {
   width: 100%;
-  margin-bottom: var(--s8);
   border-radius: var(--r8);
+}
+
+hr {
+  margin-top: var(--s24);
+  margin-bottom: var(--s24);
+  color: var(--accent-color);
 }

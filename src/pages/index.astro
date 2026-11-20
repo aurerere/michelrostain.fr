@@ -14,8 +14,11 @@ const books = await getCollection("books");
 
 const novels = books
   .filter((book) => book.data.kind === "novel")
-  .sort((a, b) => b.data.publish_at.getTime() - a.data.publish_at.getTime())
-  .slice(0, 4);
+  .sort((a, b) => a.data.publish_at.getTime() - b.data.publish_at.getTime());
+
+const essays = books
+  .filter((book) => book.data.kind === "essay")
+  .sort((a, b) => a.data.publish_at.getTime() - b.data.publish_at.getTime());
 
 const { Content: Bio } = await render(bio);
 ---
@@ -23,9 +26,9 @@ const { Content: Bio } = await render(bio);
 <Layout>
   <ContentWrapper>
     <div class="about">
-      <h2>{bio.data.title}</h2>
       <Bio />
     </div>
+    <hr />
     <div class="novels-header">
       <h2 class="no-margin">Romans</h2>
       <a href="/romans" class="more">
@@ -34,6 +37,18 @@ const { Content: Bio } = await render(bio);
     </div>
     <div class="list">
       {novels.map((entry) => (
+        <BookListItem entry={entry} />
+      ))}
+    </div>
+    <hr />
+    <div class="novels-header">
+      <h2 class="no-margin">Essais</h2>
+      <a href="/essais" class="more">
+        Tout les essais <Icon name="arrow-right" />
+      </a>
+    </div>
+    <div class="list">
+      {essays.map((entry) => (
         <BookListItem entry={entry} />
       ))}
     </div>
@@ -69,7 +84,7 @@ const { Content: Bio } = await render(bio);
   }
 
   .about {
-    margin-bottom: var(--s48);
+    margin-bottom: var(--s24);
   }
 
   @media (max-width: 810px) {

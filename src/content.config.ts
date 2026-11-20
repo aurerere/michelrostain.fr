@@ -21,7 +21,7 @@ const books = defineCollection({
     authors: z.array(z.string()),
     publish_at: z.coerce.date(),
     publisher: z.string(),
-    isbn: z.string(),
+    isbn: z.string().optional(),
     link: z.string(),
   }),
 });

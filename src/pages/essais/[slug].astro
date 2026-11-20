@@ -1,2 +1,23 @@
 ---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BookPage from "../../layouts/BookPage.astro";
+
+export async function getStaticPaths() {
+  const books = (await getCollection("books")).filter(
+    (book) => book.data.kind === "essay",
+  );
+
+  return books.map((book) => ({
+    params: { slug: book.id },
+    props: { book },
+  }));
+}
+
+interface Props {
+  book: CollectionEntry<"books">;
+}
+
+const { book } = Astro.props;
 ---
+
+<BookPage entry={book} />
